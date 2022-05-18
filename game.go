@@ -19,6 +19,7 @@ func main() {
 		var row int
 		fmt.Println("please enter column 1,2 or 3")
 		fmt.Scanln(&row)
+		row--
 
 		if row < 0 || row > 2 {
 			fmt.Println("invalid entry, please enter new row, 0,1 or 2")
@@ -27,8 +28,9 @@ func main() {
 
 		// read column value
 		var column int
-		fmt.Println("please enter column 0,1 or 2")
+		fmt.Println("please enter column 1,2 or 3")
 		fmt.Scanln(&column)
+		column--
 
 		if column < 0 || column > 2 {
 			fmt.Println("invalid entry, please enter new num, 0,1 or 2")
@@ -52,13 +54,23 @@ func main() {
 		// did some one win
 		for i := 0; i < 3; i++ {
 			// check row || columns
-			if xoBoard[i][0] == xoBoard[i][1] && xoBoard[i][1] == xoBoard[i][2] && xoBoard[i][2] == player || xoBoard[0][i] == xoBoard[1][i] && xoBoard[1][i] == xoBoard[2][i] && xoBoard[2][i] == player {
+			if (xoBoard[i][0] == xoBoard[i][1]) &&
+				(xoBoard[i][1] == xoBoard[i][2]) &&
+				(xoBoard[i][2] == player) ||
+				(xoBoard[0][i] == xoBoard[1][i]) &&
+					(xoBoard[1][i] == xoBoard[2][i]) &&
+					(xoBoard[2][i] == player) {
 				fmt.Println("game ended , winner is player:", player)
 				return
 			}
 		}
 
-		if xoBoard[0][0] == xoBoard[1][1] && xoBoard[1][1] == xoBoard[2][2] && xoBoard[2][2] == player || xoBoard[0][2] == xoBoard[1][1] && xoBoard[1][1] == xoBoard[2][0] && xoBoard[2][0] == player {
+		if (xoBoard[0][0] == xoBoard[1][1]) &&
+			(xoBoard[1][1] == xoBoard[2][2]) &&
+			(xoBoard[2][2] == player) ||
+			(xoBoard[0][2] == xoBoard[1][1]) &&
+				(xoBoard[1][1] == xoBoard[2][0]) &&
+				(xoBoard[2][0] == player) {
 			fmt.Println("game ended , winner is player:", player)
 			return
 		}
