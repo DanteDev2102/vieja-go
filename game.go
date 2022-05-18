@@ -14,7 +14,7 @@ func main() {
 	// var to carry the current player name
 	player := "x"
 	i := 0
-	for i <= 9 {
+	for i < 9 {
 
 		fmt.Println("player", player)
 
@@ -85,6 +85,8 @@ func main() {
 		} else {
 			player = "x"
 		}
+
+		i++
 	}
 	if i == 9 {
 		fmt.Println("draw")
