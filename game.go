@@ -5,12 +5,16 @@ import "fmt"
 func main() {
 	// init the game board with empty strings
 
-	xoBoard := [3][3]string{}
+	xoBoard := [3][3]string{
+		[3]string{"-", "-", "-"},
+		[3]string{"-", "-", "-"},
+		[3]string{"-", "-", "-"},
+	}
 
 	// var to carry the current player name
 	player := "x"
-
-	for {
+	i := 0
+	for i <= 9 {
 
 		fmt.Println("player", player)
 
@@ -38,7 +42,7 @@ func main() {
 		}
 
 		// set value into game board
-		if xoBoard[row][column] == "" {
+		if xoBoard[row][column] == "-" {
 			xoBoard[row][column] = player
 		} else {
 			// index already have value
@@ -81,5 +85,8 @@ func main() {
 		} else {
 			player = "x"
 		}
+	}
+	if i == 9 {
+		fmt.Println("draw")
 	}
 }
